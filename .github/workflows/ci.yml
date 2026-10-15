@@ -1,0 +1,28 @@
+name: Docker Web Project CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check required project files
+        run: |
+          test -f Dockerfile
+          test -f compose.yaml
+          test -f index.html
+          test -f README.md
+
+      - name: Validate Docker Compose configuration
+        run: docker compose config -q
+
+      - name: Build Docker image
+        run: docker build -t docker-web-project-test .
