@@ -1,0 +1,9 @@
+
+services:
+  web:
+    build: .
+    container_name: essa-web-compose
+    ports:
+      - "8081:80"
+    restart: unless-stopped
+
