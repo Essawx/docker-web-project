@@ -1,66 +1,80 @@
 # Docker-Based Web Application Deployment on Linux
 
 ## Project Overview
-This beginner DevOps project demonstrates how to build and deploy a simple static website inside a Docker container using Nginx on Linux.
+
+This beginner DevOps project demonstrates how to build and deploy a static website using Docker, Docker Compose, and Nginx on Linux.
 
 ## Technologies Used
-- Linux (Ubuntu on WSL)
+
+- Linux (Ubuntu on WSL2)
 - Docker
+- Docker Compose
 - Dockerfile
 - Nginx
 - HTML
+- Git and GitHub
 
 ## Project Features
-- Created a simple HTML website.
+
+- Created a static website using HTML.
 - Built a custom Docker image using a Dockerfile.
-- Deployed the website inside an Nginx container.
-- Exposed the website on port 8080.
-- Practiced starting, stopping, and monitoring a container.
+- Deployed the website using Nginx.
+- Configured Docker Compose using compose.yaml.
+- Mapped host port 8081 to container port 80.
+- Practiced starting, stopping, and monitoring containers.
 - Used Docker logs to check web server activity.
-- Added a .dockerignore file to exclude unnecessary files from the build context.
+- Managed project files using Git and GitHub.
 
 ## How to Run
 
-Build the Docker image:
+Clone the repository:
 
-```bash
-sudo docker build -t essa-web-app .
-```
+    git clone https://github.com/Essawx/docker-web-project.git
 
-Start the container:
+Open the project directory:
 
-```bash
-sudo docker run -d --name essa-web-container -p 8080:80 essa-web-app
-```
+    cd docker-web-project
 
-Open the website in a browser:
+Build and start the application:
 
-http://localhost:8080
+    docker compose up -d --build
 
-View running containers:
+Check container status:
 
-```bash
-sudo docker ps
-```
+    docker compose ps
 
-View container logs:
+Open the website:
 
-```bash
-sudo docker logs essa-web-container
-```
+    http://localhost:8081
 
-Stop the container:
+View logs:
 
-```bash
-sudo docker stop essa-web-container
-```
+    docker compose logs web
 
-Start the existing container again:
+Stop the application:
 
-```bash
-sudo docker start essa-web-container
-```
+    docker compose stop
 
-## Learning Outcome
-Learned the basics of Docker image creation, container deployment, port mapping, container management, and web server monitoring on Linux.
+Start the application again:
 
+    docker compose start
+
+Stop and remove the Compose container and network:
+
+    docker compose down
+
+## Learning Outcomes
+
+- Docker image creation and container deployment.
+- Nginx web server configuration.
+- Docker Compose service management.
+- Port mapping and container monitoring.
+- Linux commands and Git version control.
+
+## Author
+
+Essa Khan
+
+## GitHub Repository
+
+https://github.com/Essawx/docker-web-project
